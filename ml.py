@@ -1,10 +1,12 @@
+from numpy.core.numeric import indices
 from numpy.core.records import record
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 df2 = pd.read_csv('./model/tmdb.csv', encoding='utf-8')
-
+df2 = df2.reset_index()
+# indices = pd.Series(df2.index, index = df2['title'])
 
 class RECOMMEND():
     def __init__(self, vectorizer):     # 선언시 어떤 vectorizer를 사용할 것인지 선택
@@ -29,8 +31,8 @@ class RECOMMEND():
         return_df['Title'] = title
         return_df['Date'] = release_date
 
-        print(return_df)
-
+        # print(return_df)
+        return return_df
 
 recommend = RECOMMEND(TfidfVectorizer)
 df = recommend.get_recommendation("Spectre")
