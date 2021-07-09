@@ -1,6 +1,6 @@
 from numpy.core.records import record
 import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 df2 = pd.read_csv('./model/tmdb.csv', encoding='utf-8')
