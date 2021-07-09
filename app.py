@@ -26,7 +26,12 @@ def index():
             top_genre.fetch(genre_id)
             top_genre_id = [top_genre.results, genre["name"]]
             top_genre_collection.append(top_genre_id)
-    return render_template("home.html",top_year=top_year.results  , year=year ,top_genre=top_genre_collection )
+        return render_template("home.html",top_year=top_year.results  , year=year ,top_genre=top_genre_collection )
+    
+    elif request.method == "POST":
+        return render_template("landing.html")
+
+
 
 if __name__ == "__main__":
     app.run(port=5000 ,debug=True)
