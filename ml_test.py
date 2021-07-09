@@ -23,4 +23,3 @@ return_df['Date'] = release_date
 
 print(return_df)
 # print(sim_scores)
-print('hello')
