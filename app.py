@@ -30,6 +30,7 @@ def index():
     
     elif request.method == "POST":
         key_word = request.form['query']
+        print(len(key_word))
         if len(key_word) > 0:
             id_url = f'http://api.themoviedb.org/3/search/movie?api_key=da396cb4a1c47c5b912fda20fd3a3336&query={key_word}'
             movie_dic = movie_collection()
