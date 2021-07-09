@@ -18,7 +18,7 @@ def index():
         top_year = movie_collection()
         top_year.results = []
         top_year.fetch(id_year)
-        genre = json.loads(requests.get('https://api.themoviedb.org/3/genre/movie/list?api_key=da396cb4a1c47c5b912fda20fd3a3336&language=en-US'))
+        genre = json.loads(requests.get('https://api.themoviedb.org/3/genre/movie/list?api_key=da396cb4a1c47c5b912fda20fd3a3336&language=en-US').text)
         top_genre_collection = []
         for genre in genre:
             genre_id = f'https://api.themoviedb.org/3/genre/movie/list?api_key=da396cb4a1c47c5b912fda20fd3a3336&&with_genre={genre["id"]}&sort_by=popularity.desc'
