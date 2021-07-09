@@ -19,7 +19,7 @@ def index():
         genres = json.loads(requests.get("https://api.themoviedb.org/3/genre/movie/list?api_key=da396cb4a1c47c5b912fda20fd3a3336&language=en-US").text)
         top_genre_collection = []
         for genre in genres['genres']:
-            print(genre['id'])
+            # print(genre['id'])
             genre_id = 'https://api.themoviedb.org/3/discover/movie?api_key=da396cb4a1c47c5b912fda20fd3a3336&with_genres={}&sort_by=popularity.desc'.format(genre["id"])
             top_genre = movie_collection()
             top_genre.results = []
@@ -27,6 +27,6 @@ def index():
             top_genre_id = [top_genre.results, genre["name"]]
             top_genre_collection.append(top_genre_id)
     return render_template("home.html",top_year=top_year.results  , year=year ,top_genre=top_genre_collection )
-    
+
 if __name__ == "__main__":
     app.run(port=5000 ,debug=True)
