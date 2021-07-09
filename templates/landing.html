@@ -1,8 +1,16 @@
 {% extends 'layout.html' %}
 {% block body %}
     {% include 'nav.html' %}
-    <h1>
-        랜딩페이지
-    </h1>    
+    <div class="container-fluid">
+        <h1 class="heading">{{movie|length}} Results for {{key_word}}</h1>
+        <div class="slider">
+            <div class="contain">
+                <div class="row">
+                    <div class="row__inner">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
 {% endblock %}

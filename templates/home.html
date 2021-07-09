@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block body %}
     {% include 'nav.html' %}
-        <img src = "{{ url_for('static', filename='imgs/tmdb_logo.png') }}"/>
+        <!-- <img src = "{{ url_for('static', filename='imgs/tmdb_logo.png') }}"/> -->
     {% for i in top_year %}
         <img src = "{{ i.poster }}"/>
     {% endfor %}

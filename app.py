@@ -29,6 +29,13 @@ def index():
         return render_template("home.html",top_year=top_year.results  , year=year ,top_genre=top_genre_collection )
     
     elif request.method == "POST":
+        key_word = request.form['query']
+        if len(key_word) > 0:
+            id_url = f'http://api.themoviedb.org/3/search/movie?api_key=da396cb4a1c47c5b912fda20fd3a3336&query={key_word}'
+            movie_dic = movie_collection()
+            movie_dic.results = []
+            movie_dic.fetch(id_url)
+            print(movie_dic)
         return render_template("landing.html")
 
 
