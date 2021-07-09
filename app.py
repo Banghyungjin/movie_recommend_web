@@ -37,7 +37,7 @@ def index():
             movie_dic.results = []
             movie_dic.fetch(id_url)
             print(movie_dic)
-        return render_template("landing.html")
+        return render_template("landing.html", key_word= key_word, movie = movie_dic.results)
 
 
 
