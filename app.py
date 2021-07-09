@@ -90,7 +90,6 @@ def recommend():
         if m_name not in all_titles:
             return render_template('nagative.html', name= m_name)
         else:
-            
             result_final = get_recommendation(m_name)
             print(type(result_final))
             data = []
