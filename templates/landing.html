@@ -7,21 +7,23 @@
             <div class="contain">
                 <div class="row">
                     <div class="row__inner">
-                        {% for i in movie %}
-                            <div class = 'tile'>
-                                <a href="/detail/{{i.id}}">
-                                    <img class = 'img-fluid' src="{{i.poster}}"
-                                    alt="image not load"/>
-                                    <div class="tile_details">
-                                        <p>
+                        <table>
+                            {% for i in movie %}
+                            <td>
+                                <div class = 'tile'>
+                                    <a href="/detail/{{i.id}}">
+                                        <img class = 'img-fluid' src="{{i.poster}}"
+                                        alt="image not load"/>
+                                        <div class="tile_details">
                                             <div class="tile_title">
                                                 {{i.title}}
                                             </div>
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                        {% endfor %}
+                                        </div>
+                                    </a>
+                                </div>
+                            </td>
+                            {% endfor %}
+                        </table>
                     </div>
                 </div>
             </div>
