@@ -39,6 +39,13 @@ def index():
             print(movie_dic)
         return render_template("landing.html", key_word= key_word, movie = movie_dic.results)
 
+@app.route('/details/<id>', methods=['GET' , 'POST'])
+def details(id):
+    url = f"http://api.themoviedb.org/3/movie/{id}?api_key=da396cb4a1c47c5b912fda20fd3a3336"
+    data = json.loads(requests.get(url).text)
+    data_json = movie(data["id"],data["title"],data["poster_path"],data["vote_average"],data["release_date"],data["overview"])
+    return render_template("details.html", movie = data_json)
+
 
 
 if __name__ == "__main__":
