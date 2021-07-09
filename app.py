@@ -8,6 +8,7 @@ from fetch import movie, movie_collection
 
 app = Flask(__name__)
 
+
 @app.route('/', methods=['GET' , 'POST'])
 def index():
     if request.method =="GET":
@@ -39,6 +40,7 @@ def index():
             print(movie_dic)
         return render_template("landing.html", key_word= key_word, movie = movie_dic.results)
 
+
 @app.route('/details/<id>', methods=['GET' , 'POST'])
 def details(id):
     url = f"http://api.themoviedb.org/3/movie/{id}?api_key=da396cb4a1c47c5b912fda20fd3a3336"
@@ -46,6 +48,13 @@ def details(id):
     data_json = movie(data["id"],data["title"],data["poster_path"],data["vote_average"],data["release_date"],data["overview"])
     return render_template("details.html", movie = data_json)
 
+
+@app.route('/recommend', methods=['GET' , 'POST'])
+def recommend():
+    if request.method == "GET":
+        return render_template('recommend.html')
+    elif request.method == "POST":
+        return "POST"
 
 
 if __name__ == "__main__":
